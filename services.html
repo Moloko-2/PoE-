@@ -31,43 +31,82 @@
 
         <h3>The cost of these byproducts are as follows:</h3>
 
-        <div class="container">
+        <div class="file">
            
-            <div class=" card">
+            <div class="folder">
                 <h2>Cow</h2>    
                 <li>Milkk= R350per gallon</li>
                 <li>Leatherr= R200per roll</li>
                 <li>Beef= R100per kg</li>
                 <li>Manure= R70per kg</li>
+                <img src="cow.jpeg" alt="Cow" class="animal-image">
+                <button onclick="showImage(this)">Show Image</button>
+                <button onclick="addToCart(this)">Add to Cart</button>
             </div>
-            <div class=" card">
+            <div class="folder">
                 <h2>Chicken</h2>
                 <li>Egg= R35per gram</li>
                 <li>Feathers= R170per pack</li>
                 <li>Broilers= R100per kg</li>
                 <li>Manure= R70per kg</li>
+                <img src="chicken.webp" alt="Chicken" class="animal-image">
+                <button onclick="showImage(this)">Show Image</button>
+                <button onclick="addToCart(this)">Add to Cart</button>
             </div>
-            <div class=" card">
+            <div class="folder">
                 <h2>Pig</h2>
                 <li>Lard= R150per kg</li>
                 <li>Leatherr= R200per roll</li>
                 <li>Pork= R100per kg</li>
                 <li>Manure= R70per kg</li>
+                <img src="images/pig.jpeg" alt="Pig" class="animal-image">
+                <button onclick="showImage(this)">Show Image</button>
+                <button onclick="addToCart(this)">Add to Cart</button>
             </div>
-            <div class=" card">
+            <div class="folder">
                 <h2>Sheep</h2>
                 <li>Milkk= R350per gallon</li>
                 <li>leatherr= R200per roll</li>
                 <li>Lamb= R100per kg</li>
                 <li>Manure= R70per kg</li>
+                <img src="images/sheep.webp" alt="Sheep" class="animal-image">
+                <button onclick="showImage(this)">Show Image</button>
+                <button onclick="addToCart(this)">Add to Cart</button>
             </div>
-            <div class=" card">
+            <div class="folder">
                 <h2>Goat</h2>
                 <li>Milkk= R350per gallon</li>
                 <li>Leatherr= R200per roll</li>
                 <li>Chevon= R100per kg</li>
                 <li>Manure= R70per kg</li>
+                <img src="goat.jpg" alt="Goat" class="animal-image">
+                <button onclick="showImage(this)">Show Image</button>
+                <button onclick="addToCart(this)">Add to Cart</button>
             </div>
         </div>
+
+        <script>
+            function showImage(button) {
+                const folder = button.closest('.folder');
+                const image = folder.querySelector('.animal-image');
+                image.style.display = image.style.display === 'none' ? 'block' : 'none';
+            }
+    
+            const cart = [];
+    
+            function addToCart(button) {
+                const folder = button.closest('.folder');
+                const name = folder.querySelector('h2').innerText;
+                const items = Array.from(folder.querySelectorAll('li')).map(li => li.innerText);
+    
+                cart.push({ name, items });
+                alert(name + " products added to cart!");
+                console.log("Cart Contents:", cart);
+            }
+        </script>
+
+        <footer>
+            Copy-rights 2025@ - MOLOKO, 43 ST LEBOWAKGOMO
+         </footer>  
     </body>
 </html>
